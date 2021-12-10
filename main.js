@@ -80,18 +80,18 @@ for (let i = 0; i < post.length; i++) {
         </div>`;
 
         container.innerHTML += cardPost;
+
+        // - Rendiamo il tasto “Mi Piace” cliccabile con incremento del counter dei likes.
+        
+        let button = document.querySelector('.like-button');
+        let numberLikes = document.getElementById('like-counter-1');
+
+        button.addEventListener('click', function(){
+            button.classList.add('like-button--liked');
+            numberLikes.innerText = cards.numeroLikes + 1;
+
+        });
     };
-    
 
-    // - Rendiamo il tasto “Mi Piace” cliccabile con incremento del counter dei likes.
-    
-    // let button = document.querySelector('.like-button');
-    // let numberLikes = document.querySelector('.js-likes-counter');
-    // button.addEventListener('click', function(){
-    //     numberLikes == numberLikes + 1;
-
-    //     console.log('1', button);
-    //     console.log('2', numbersLikes);
-    // });
 
 
