@@ -9,28 +9,17 @@
 //     - Prendendo come riferimento il layout di esempio presente nell’html, stampiamo i post del nostro feed.
 // - Rendiamo il tasto “Mi Piace” cliccabile con incremento del counter dei likes.
 
-// function random(num) {
-//    let randomNumber = Math.floor(Math.random() * num);
-//    return randomNumber;
-// }
 
 
 const post = [
     {
         nomeAutore: 'Phil Mangione',
-        fotoProfilo: 'https://unsplash.it/300/300?image=15',
+        fotoProfilo: 'https://unsplash.it/300/300?image=',
         data: '10/12/2021',
         testoPost:'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-        immagine: 'https://unsplash.it/300/300?image=171',
+        immagine: 'https://unsplash.it/300/300?image=',
         numeroLikes: 100,
-    },
-    {
-        nomeAutore: 'Dario',
-        fotoProfilo: 'https://unsplash.it/300/300?image=15',
-        data: '10/12/2021',
-        testoPost: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-        immagine: 'https://unsplash.it/300/300?image=171',
-        numeroLikes: 100,
+        numeroCasuale: Math.floor(Math.random() * 100),
     }
 ];
 
@@ -45,7 +34,7 @@ for (let i = 0; i < post.length; i++) {
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="${cards.fotoProfilo}" alt="${cards.nomeAutore}">                    
+                        <img class="profile-pic" src="${cards.fotoProfilo}${cards.numeroCasuale}" alt="${cards.nomeAutore}">                    
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${cards.nomeAutore}</div>
@@ -55,7 +44,7 @@ for (let i = 0; i < post.length; i++) {
             </div>
             <div class="post__text">${cards.testoPost}</div>
             <div class="post__image">
-                <img src="${cards.immagine}" alt="">
+                <img src="${cards.immagine}${cards.numeroCasuale}" alt="">
             </div>
             <div class="post__footer">
                 <div class="likes js-likes">
@@ -74,3 +63,5 @@ for (let i = 0; i < post.length; i++) {
 
         container.innerHTML += cardPost;
 };
+
+
