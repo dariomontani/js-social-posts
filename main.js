@@ -18,7 +18,25 @@ const post = [
         data: '10/12/2021',
         testoPost:'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         immagine: 'https://unsplash.it/300/300?image=',
-        numeroLikes: 100,
+        numeroLikes: Math.floor(Math.random() * 1000),
+        numeroCasuale: Math.floor(Math.random() * 100),
+    },
+    {
+        nomeAutore: 'Phil Mangione',
+        fotoProfilo: 'https://unsplash.it/300/300?image=',
+        data: '10/12/2021',
+        testoPost: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
+        immagine: 'https://unsplash.it/300/300?image=',
+        numeroLikes: Math.floor(Math.random() * 1000),
+        numeroCasuale: Math.floor(Math.random() * 100),
+    },
+    {
+        nomeAutore: 'Phil Mangione',
+        fotoProfilo: 'https://unsplash.it/300/300?image=',
+        data: '10/12/2021',
+        testoPost: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
+        immagine: 'https://unsplash.it/300/300?image=',
+        numeroLikes: parseInt(Math.floor(Math.random() * 1000)),
         numeroCasuale: Math.floor(Math.random() * 100),
     }
 ];
@@ -62,6 +80,18 @@ for (let i = 0; i < post.length; i++) {
         </div>`;
 
         container.innerHTML += cardPost;
-};
+    };
+    
+
+    // - Rendiamo il tasto “Mi Piace” cliccabile con incremento del counter dei likes.
+    
+    // let button = document.querySelector('.like-button');
+    // let numberLikes = document.querySelector('.js-likes-counter');
+    // button.addEventListener('click', function(){
+    //     numberLikes == numberLikes + 1;
+
+    //     console.log('1', button);
+    //     console.log('2', numbersLikes);
+    // });
 
 
