@@ -13,30 +13,33 @@
 
 const post = [
     {
+        id: 1,
         nomeAutore: 'Phil Mangione',
         fotoProfilo: 'https://unsplash.it/300/300?image=',
         data: '10/12/2021',
         testoPost:'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         immagine: 'https://unsplash.it/300/300?image=',
-        numeroLikes: Math.floor(Math.random() * 1000),
+        numeroLikes: 1,
         numeroCasuale: Math.floor(Math.random() * 100),
     },
     {
+        id: 2,
         nomeAutore: 'Phil Mangione',
         fotoProfilo: 'https://unsplash.it/300/300?image=',
         data: '10/12/2021',
         testoPost: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         immagine: 'https://unsplash.it/300/300?image=',
-        numeroLikes: Math.floor(Math.random() * 1000),
+        numeroLikes: 1,
         numeroCasuale: Math.floor(Math.random() * 100),
     },
     {
+        id: 3,
         nomeAutore: 'Phil Mangione',
         fotoProfilo: 'https://unsplash.it/300/300?image=',
         data: '10/12/2021',
         testoPost: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         immagine: 'https://unsplash.it/300/300?image=',
-        numeroLikes: parseInt(Math.floor(Math.random() * 1000)),
+        numeroLikes: 1,
         numeroCasuale: Math.floor(Math.random() * 100),
     }
 ];
@@ -73,7 +76,7 @@ for (let i = 0; i < post.length; i++) {
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-1" class="js-likes-counter">${cards.numeroLikes}</b> persone
+                        Piace a <b id="like-counter-${cards.id}" class="js-likes-counter">${cards.numeroLikes}</b> persone
                     </div>
                 </div> 
             </div>            
@@ -83,14 +86,19 @@ for (let i = 0; i < post.length; i++) {
 
         // - Rendiamo il tasto “Mi Piace” cliccabile con incremento del counter dei likes.
         
-        let button = document.querySelector('.like-button');
-        let numberLikes = document.getElementById('like-counter-1');
-
-        button.addEventListener('click', function(){
-            button.classList.add('like-button--liked');
-            numberLikes.innerText = cards.numeroLikes + 1;
-
-        });
+        let buttons = document.querySelectorAll('.like-button');
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            
+            button.addEventListener('click', function(event){
+                event.preventDefault();
+                const id = i + 1;
+                const containerLike = document.getElementById('like-counter-' + id);
+                post[i].numeroLikes += 1; 
+                containerLike.innerHTML = post[i].numeroLikes;
+                this.classList.add('like-button--liked');
+            });
+        }
     };
 
 
